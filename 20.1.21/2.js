@@ -1,27 +1,24 @@
 function runProgram(input){
-    input = input.trim().split(" ")
-    let code = input[0]
-    // console.log(code)
-    let decode = []
-    let pce = code[0]
+    input = input.trim().split('').sort()
+    let bay = input
     let count = 0
-    for(let i=0;i<code.length;i++){
-        if(code[i]===pce){
+    let a = bay[0]
+    let total = 0
+    for(let i=0;i<bay.length;i++){
+        if(a===bay[i]){
             count++
-        }else if(code[i]!==pce){
-            pce = code[i]
-            decode.push(count)
-            count = 1
+        }else if(a!==bay[i]){
+            a=bay[i]
+            count = 0
+            count++
         }
+        total = total + count
     }
-    decode.push(count)
-    decode = decode.sort((a,b)=>b-a)
-    console.log(decode[0])
-    
+    console.log(total)
   
 }
 if(process.env.USERNAME === "Dell"){
-    runProgram(`CTCAGGTCCG`)
+    runProgram(`abcab`)
 }
 else{
     process.stdin.resume();

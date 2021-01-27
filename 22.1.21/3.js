@@ -1,27 +1,19 @@
 function runProgram(input){
-    input = input.trim().split(" ")
-    let code = input[0]
-    // console.log(code)
-    let decode = []
-    let pce = code[0]
-    let count = 0
-    for(let i=0;i<code.length;i++){
-        if(code[i]===pce){
-            count++
-        }else if(code[i]!==pce){
-            pce = code[i]
-            decode.push(count)
-            count = 1
-        }
+    input = input.trim().split("\n")
+    let str1 = input[0].trim().split('').filter(e=>e===' '?'':e).sort().reduce((a,b)=>a+b)
+    let str2 = input[1].trim().split('').filter(e=>e===' '?'':e).sort().reduce((a,b)=>a+b)
+    // console.log(str1,str2)
+    if(str1===str2){
+        console.log('True')
+    }else{
+        console.log('False')
     }
-    decode.push(count)
-    decode = decode.sort((a,b)=>b-a)
-    console.log(decode[0])
     
   
 }
 if(process.env.USERNAME === "Dell"){
-    runProgram(`CTCAGGTCCG`)
+    runProgram(`anagram
+    nag a ram`)
 }
 else{
     process.stdin.resume();

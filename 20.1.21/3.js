@@ -1,27 +1,25 @@
 function runProgram(input){
     input = input.trim().split(" ")
-    let code = input[0]
-    // console.log(code)
-    let decode = []
-    let pce = code[0]
+    let bay = input[0]
+    // console.log(bay)
     let count = 0
-    for(let i=0;i<code.length;i++){
-        if(code[i]===pce){
-            count++
-        }else if(code[i]!==pce){
-            pce = code[i]
-            decode.push(count)
-            count = 1
+    for(let i=0;i<bay.length;i++){
+        for(let j=i+1;j<bay.length;j++){
+            if(bay[i]==bay[j]){
+                count++
+            }
         }
     }
-    decode.push(count)
-    decode = decode.sort((a,b)=>b-a)
-    console.log(decode[0])
+    if(count===0){
+        console.log('Unique')
+    }else{
+        console.log('No')
+    }
     
   
 }
 if(process.env.USERNAME === "Dell"){
-    runProgram(`CTCAGGTCCG`)
+    runProgram(`masai`)
 }
 else{
     process.stdin.resume();
